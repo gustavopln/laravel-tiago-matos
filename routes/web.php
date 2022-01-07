@@ -96,4 +96,4 @@ Route::get('/', function () {
 // MIDDLEWARE - Criando e aplicando middlewares
 Route::get('users', function () {
   // dd('x');
-})->middleware('userAgent');
+});
