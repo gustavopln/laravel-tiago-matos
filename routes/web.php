@@ -94,6 +94,21 @@ Route::get('/', function () {
 // });
 
 // MIDDLEWARE - Criando e aplicando middlewares
-Route::get('users', function () {
-  // dd('x');
+// Route::get('users', function () {
+//    dd('users');
+// });
+
+// MIDDLEWARE - Aplicando middleware em grupos de rota
+Route::middleware('userAgent')->group(function () {
+  Route::get('users', function () {
+    dd('users');
+  });
+
+  Route::get('posts', function () {
+    dd('posts');
+  });
+
+  Route::get('services', function () {
+    dd('services');
+  })->withoutMiddleware('userAgent');
 });
