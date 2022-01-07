@@ -5,17 +5,17 @@ use Illuminate\Support\Facades\Route;
 // Route::redirect('rota-a', 'rota-b', 301);
 // Route::permanentRedirect('rota-a', 'rota-b');
 
-Route::get('rota-a', function () {
-    // Lógica cabulosa
-    return redirect()->route('rotab');
-});
+// Route::get('rota-a', function () {
+//     // Lógica cabulosa
+//     return redirect()->route('rotab');
+// });
 
-Route::get('rota-b', function () {
-    return 'Rota B';
-})->name('rotab');
+// Route::get('rota-b', function () {
+//     return 'Rota B';
+// })->name('rotab');
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 // Route::get('users', function () {
@@ -35,10 +35,10 @@ Route::get('/', function () {
 //     'name' => '[A-Za-z]+'
 // ]);
 
-Route::get('token/{token}', function ($token) {
-    return $token;
-    //})->whereAlphaNumeric('token');
-})/*->whereUuid('token')*/;
+// Route::get('token/{token}', function ($token) {
+//     return $token;
+//     //})->whereAlphaNumeric('token');
+// })->whereUuid('token');
 
 //Agrupando rotas usando prefixo
 // Route::prefix('admin')->name('admin.')->group((function () {
@@ -57,9 +57,9 @@ Route::get('token/{token}', function ($token) {
 
 //Agrupando rotas com middleware
 
-Route::get('test', function () {
-    return 'Teste';
-})->middleware('signed');
+// Route::get('test', function () {
+//     return 'Teste';
+// })->middleware('signed');
 
 // Route::middleware('signed')->group(function () {
 //     Route::get('user', function () {
@@ -79,16 +79,21 @@ Route::get('test', function () {
 // });
 
 // Roteamento - Fallback
-Route::fallback(function () {
-    return 'Hello World';
-});
+// Route::fallback(function () {
+//     return 'Hello World';
+// });
 
 // Roteamento - injeção de dependência
-Route::get('/', function (\Illuminate\Http\Request $request) {
-    //return $request;
-    dd($request);
-});
+// Route::get('/', function (\Illuminate\Http\Request $request) {
+//     //return $request;
+//     dd($request);
+// });
 
-Route::get('/user/{user}', function (\App\Models\User $user) {
-    dd($user);
-});
+// Route::get('/user/{user}', function (\App\Models\User $user) {
+//     dd($user);
+// });
+
+// MIDDLEWARE - Criando e aplicando middlewares
+Route::get('users', function () {
+  // dd('x');
+})->middleware('userAgent');
