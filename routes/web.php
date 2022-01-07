@@ -99,7 +99,22 @@ Route::get('/', function () {
 // });
 
 // MIDDLEWARE - Aplicando middleware em grupos de rota
-Route::middleware('userAgent')->group(function () {
+// Route::middleware('userAgent')->group(function () {
+//   Route::get('users', function () {
+//     dd('users');
+//   });
+
+//   Route::get('posts', function () {
+//     dd('posts');
+//   });
+
+//   Route::get('services', function () {
+//     dd('services');
+//   })->withoutMiddleware('userAgent');
+// });
+
+// MIDDLEWARE - Aplicando múltiplos middleware
+Route::middleware(['userAgent', 'checkToken'])->group(function () {
   Route::get('users', function () {
     dd('users');
   });
